@@ -1,12 +1,7 @@
 local servers = {
   "clangd",
-  "docker-compose-language-service",
-  "dockerfile-language-server",
   "gopls",
-  "lua-language-server",
-  "markdown-toc",
-  "protolint",
-  "stylua",
+  "lua_ls",
 }
 
 local settings = {

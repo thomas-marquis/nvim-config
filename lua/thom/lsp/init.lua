@@ -4,4 +4,4 @@ if not status_ok then
 end
 
 require "thom.lsp.mason"
-require("user.lsp.handlers").setup()
+require("thom.lsp.handlers").setup()

@@ -4,6 +4,7 @@ require "thom.colorscheme"
 require "thom.cmp"
 require "thom.keymaps"
 require "thom.lsp"
+require "thom.toggleterm"
 
 -- nvim-tree:
 -- disable netrw at the very start of your init.lua

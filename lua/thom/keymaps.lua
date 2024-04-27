@@ -24,11 +24,11 @@ k("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 k("n", "<S-l>", ":bnext<CR>", opts)
 k("n", "<S-h>", ":bprevious<CR>", opts)
+k("n", "bd", ":bprevious<bar>:bdelete #<CR>", opts)
 
 -- Move text up and down
 k("n", "<A-j>", ":m .+1<CR>==", opts)
 k("n", "<A-k>", ":m .-2<CR>==", opts)
-
 
 -- VISUAL
 k("v", "<", "<gv^", opts)

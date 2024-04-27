@@ -36,7 +36,7 @@ return require('packer').startup(function(use)
 
   use 'nvim-lua/popup.nvim'
   use "nvim-lua/plenary.nvim"
-  
+
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
@@ -58,11 +58,11 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use "rafamadriz/friendly-snippets"
   use 'hrsh7th/cmp-nvim-lsp'
-  
+
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
-      'nvim-tree/nvim-web-devicons', -- optional
+      'nvim-tree/nvim-web-devicons',
     },
   }
 

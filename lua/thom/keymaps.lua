@@ -26,8 +26,14 @@ k("n", "<S-l>", ":bnext<CR>", opts)
 k("n", "<S-h>", ":bprevious<CR>", opts)
 k("n", "bd", ":bprevious<bar>:bdelete #<CR>", opts)
 
+-- Telescope
+k("n", "<leader>f",
+  "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+  opts)
+k("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
+
 -- Outline
-k("n", "<leader>o", ":LspSymbols<CR>", opts)
+k("n", "<leader>o", "<cmd>Outline<CR>", opts)
 
 -- Move text up and down
 k("n", "<A-j>", ":m .+1<CR>==", opts)
@@ -43,4 +49,3 @@ k("v", "y", "ygv", opts)
 k("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 k("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 k("v", "p", '"_dP', opts)
-

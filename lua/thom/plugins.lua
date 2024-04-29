@@ -1,8 +1,8 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -60,34 +60,53 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
 
   use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+
+  use "github/copilot.vim"
+
+  -- Navigation
+  use {
     'nvim-tree/nvim-tree.lua',
     requires = {
       'nvim-tree/nvim-web-devicons',
     },
   }
-  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-  --use "preservim/tagbar"
-  use({
-    'ray-x/navigator.lua',
+  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.6',
     requires = {
-        { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
-        { 'neovim/nvim-lspconfig' },
-        { 'nvim-treesitter/nvim-treesitter' },
-    },
-  })
-
-  use 'm4xshen/autoclose.nvim'
+      { 'nvim-lua/plenary.nvim' },
+      { "nvim-tree/nvim-web-devicons" },
+      { "nvim-treesitter/nvim-treesitter" },
+    }
+  }
 
   -- LSP
   use "neovim/nvim-lspconfig"
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
   use "RRethy/vim-illuminate"
+  use {
+    "hedyhli/outline.nvim",
+  }--use({
+--  'ray-x/navigator.lua',
+--  requires = {
+--    { 'ray-x/guihua.lua',
+--      run = 'cd lua/fzy && make' },
+--    { 'neovim/nvim-lspconfig' },
+--    { 'nvim-treesitter/nvim-treesitter' },
+--  },
+--})
+
+  -- Code formatting
+  use 'm4xshen/autoclose.nvim'
 
   -- Terminal
-  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
-  end}
+  end }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

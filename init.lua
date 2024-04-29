@@ -6,7 +6,10 @@ require "thom.keymaps"
 require "thom.lsp"
 require "thom.toggleterm"
 require "thom.bufferline"
-require "thom.navigator"
+-- require "thom.navigator"
+require "thom.telescope"
+require "thom.treesitter"
+require "thom.outline"
 
 -- nvim-tree:
 -- disable netrw at the very start of your init.lua

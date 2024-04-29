@@ -66,6 +66,15 @@ return require('packer').startup(function(use)
     },
   }
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+  --use "preservim/tagbar"
+  use({
+    'ray-x/navigator.lua',
+    requires = {
+        { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+        { 'neovim/nvim-lspconfig' },
+        { 'nvim-treesitter/nvim-treesitter' },
+    },
+  })
 
   use 'm4xshen/autoclose.nvim'
 

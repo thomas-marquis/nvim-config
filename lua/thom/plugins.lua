@@ -100,8 +100,12 @@ return require('packer').startup(function(use)
 --  },
 --})
 
+  -- Comments
+  use "b3nj5m1n/kommentary"
+
   -- Code formatting
   use 'm4xshen/autoclose.nvim'
+  use "mhartington/formatter.nvim"
 
   -- Terminal
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()

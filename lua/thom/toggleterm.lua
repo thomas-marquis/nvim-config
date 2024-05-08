@@ -1,7 +1,7 @@
 local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
-  vim.notify("An error occurred during loading togglterm")
-  return
+	vim.notify("An error occurred during loading togglterm")
+	return
 end
 
 K = require("thom.keymaps.toggleterm")
@@ -16,7 +16,7 @@ toggleterm.setup({
 	start_in_insert = true,
 	insert_mappings = true,
 	persist_size = true,
-    persist_mode = true,
+	persist_mode = true,
 	direction = "horizontal", -- 'vertical' | 'horizontal' | 'tab' | 'float'
 	close_on_exit = true,
 	shell = vim.o.shell,
@@ -31,10 +31,10 @@ toggleterm.setup({
 })
 
 function _G.set_terminal_keymaps()
-  K.keymaps()
+	K.keymaps()
 end
 
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })

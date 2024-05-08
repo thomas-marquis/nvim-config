@@ -1,14 +1,14 @@
-require "thom.options"
-require "thom.plugins"
-require "thom.colorscheme"
-require "thom.cmp"
-require "thom.keymaps"
-require "thom.lsp"
-require "thom.bufferline"
-require "thom.telescope"
-require "thom.treesitter"
-require "thom.outline"
-require "thom.lualine"
+require("thom.options")
+require("thom.plugins")
+require("thom.colorscheme")
+require("thom.cmp")
+require("thom.keymaps")
+require("thom.lsp")
+require("thom.bufferline")
+require("thom.telescope")
+require("thom.treesitter")
+require("thom.outline")
+require("thom.lualine")
 
 -- nvim-tree:
 -- disable netrw at the very start of your init.lua
@@ -23,20 +23,19 @@ require("nvim-tree").setup()
 
 -- OR setup with some options
 require("nvim-tree").setup({
-  sort = {
-    sorter = "case_sensitive",
-  },
-  view = {
-    width = 30,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
+	sort = {
+		sorter = "case_sensitive",
+	},
+	view = {
+		width = 30,
+	},
+	renderer = {
+		group_empty = true,
+	},
+	filters = {
+		dotfiles = true,
+	},
 })
 
 -- autoclose
 require("autoclose").setup()
-

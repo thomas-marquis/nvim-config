@@ -1,3 +1,3 @@
 return {
-  filetypes = { "c", "h", "cpp", "hpp", "objc", "objcpp", "cuda" },
+	filetypes = { "c", "h", "cpp", "hpp", "objc", "objcpp", "cuda" },
 }

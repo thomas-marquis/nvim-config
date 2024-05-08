@@ -16,7 +16,6 @@ k("n", "<C-j>", "<C-w>j", opts)
 k("n", "<C-k>", "<C-w>k", opts)
 k("n", "<C-l>", "<C-w>l", opts)
 
-
 -- Resize with arrows
 k("n", "<C-Up>", "<cmd>resize -2<CR>", opts)
 k("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
@@ -29,9 +28,12 @@ k("n", "<S-h>", "<cmd>bprevious<CR>", opts)
 k("n", "bd", "<cmd>bprevious<bar>:bdelete #<CR>", opts)
 
 -- Telescope
-k("n", "<leader>tf",
-  "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-  opts)
+k(
+	"n",
+	"<leader>tf",
+	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+	opts
+)
 k("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Outline

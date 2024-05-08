@@ -1,13 +1,13 @@
 local status_ok, bufferline = pcall(require, "bufferline")
 if not status_ok then
-  return
+	return
 end
 
-bufferline.setup {
-  options = {
-    offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-    close_command = "bdelete! %d",
-    right_mouse_command = "bdelete! %d",
-    left_mouse_command = "buffer %d",
-  }
-}
+bufferline.setup({
+	options = {
+		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+		close_command = "bdelete! %d",
+		right_mouse_command = "bdelete! %d",
+		left_mouse_command = "buffer %d",
+	},
+})

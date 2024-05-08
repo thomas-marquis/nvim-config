@@ -42,13 +42,6 @@ return require('packer').startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   })
 
-  use {
-    "loctvl842/monokai-pro.nvim",
-    config = function()
-      require("monokai-pro").setup()
-    end
-  }
-
   -- CMP
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
@@ -83,6 +76,37 @@ return require('packer').startup(function(use)
     }
   }
 
+    -- UI
+    use {
+      'nvimdev/dashboard-nvim',
+      event = 'VimEnter',
+      config = function()
+        require('thom.dashboard')
+      end,
+      requires = {'nvim-tree/nvim-web-devicons'}
+    }
+  use {
+    "loctvl842/monokai-pro.nvim",
+    config = function()
+      require("monokai-pro").setup()
+    end
+  }
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+    use({
+      "utilyre/barbecue.nvim",
+      tag = "*",
+      requires = {
+        "SmiteshP/nvim-navic",
+        "nvim-tree/nvim-web-devicons",
+      },
+      config = function()
+        require("barbecue").setup()
+      end,
+    })
+
   -- LSP
   use "neovim/nvim-lspconfig"
   use "williamboman/mason.nvim"
@@ -90,15 +114,10 @@ return require('packer').startup(function(use)
   use "RRethy/vim-illuminate"
   use {
     "hedyhli/outline.nvim",
-  }--use({
---  'ray-x/navigator.lua',
---  requires = {
---    { 'ray-x/guihua.lua',
---      run = 'cd lua/fzy && make' },
---    { 'neovim/nvim-lspconfig' },
---    { 'nvim-treesitter/nvim-treesitter' },
---  },
---})
+  }
+
+  -- Tests
+  use "vim-test/vim-test"
 
   -- Comments
   use "b3nj5m1n/kommentary"
@@ -108,9 +127,13 @@ return require('packer').startup(function(use)
   use "mhartington/formatter.nvim"
 
   -- Terminal
-  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup()
-  end }
+  use {
+        "akinsho/toggleterm.nvim",
+        tag = '*',
+        config = function()
+            require("thom.toggleterm")
+        end
+    }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

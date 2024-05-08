@@ -4,12 +4,11 @@ require "thom.colorscheme"
 require "thom.cmp"
 require "thom.keymaps"
 require "thom.lsp"
-require "thom.toggleterm"
 require "thom.bufferline"
--- require "thom.navigator"
 require "thom.telescope"
 require "thom.treesitter"
 require "thom.outline"
+require "thom.lualine"
 
 -- nvim-tree:
 -- disable netrw at the very start of your init.lua
@@ -40,7 +39,4 @@ require("nvim-tree").setup({
 
 -- autoclose
 require("autoclose").setup()
-
--- clipboard TODO
-vim.api.nvim_set_option("clipboard", "unnamed") 
 

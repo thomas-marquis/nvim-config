@@ -49,7 +49,7 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-	use("L3MON4D3/LuaSnip")
+	use({ "L3MON4D3/LuaSnip", run = "make install_jsregexp" })
 	use("saadparwaiz1/cmp_luasnip")
 	use("rafamadriz/friendly-snippets")
 	use("hrsh7th/cmp-nvim-lsp")
@@ -118,6 +118,10 @@ return require("packer").startup(function(use)
 	use({
 		"hedyhli/outline.nvim",
 	})
+	use({
+		"linux-cultist/venv-selector.nvim",
+		requires = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
+	})
 
 	-- formatting
 	use({
@@ -132,7 +136,12 @@ return require("packer").startup(function(use)
 	use("vim-test/vim-test")
 
 	-- Comments
-	use("b3nj5m1n/kommentary")
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 
 	-- Code formatting
 	use("m4xshen/autoclose.nvim")

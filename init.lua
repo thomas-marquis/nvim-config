@@ -2,13 +2,16 @@ require("thom.options")
 require("thom.plugins")
 require("thom.colorscheme")
 require("thom.cmp")
-require("thom.keymaps")
 require("thom.lsp")
 require("thom.bufferline")
 require("thom.telescope")
 require("thom.treesitter")
 require("thom.outline")
 require("thom.lualine")
+require("thom.venv-selector")
+require("thom.comments")
+
+require("thom.keymaps")
 
 -- nvim-tree:
 -- disable netrw at the very start of your init.lua

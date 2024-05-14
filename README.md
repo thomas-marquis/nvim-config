@@ -47,3 +47,6 @@ Then, configure copilot the each time:
 :Copilot setup
 ```
 
+Install `fd`:
+
+[See documentation](https://github.com/sharkdp/fd)

@@ -121,6 +121,9 @@ return require("packer").startup(function(use)
 	use({
 		"linux-cultist/venv-selector.nvim",
 		requires = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
+		config = function()
+			require("venv-selector")
+		end,
 	})
 
 	-- formatting

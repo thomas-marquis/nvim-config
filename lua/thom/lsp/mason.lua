@@ -2,6 +2,7 @@ local servers = {
 	"clangd",
 	"gopls",
 	"lua_ls",
+	"pyright",
 }
 
 local settings = {

@@ -9,8 +9,13 @@ vim.g.maplocalleader = " "
 local _ = require("thom.keymaps.nvim-tree")
 local _ = require("thom.keymaps.vim-test")
 local _ = require("thom.keymaps.venv-select")
+local _ = require("thom.keymaps.fold")
 
 -- NORMAL
+-- Move
+k("n", "<leader>j", "15j", opts)
+k("n", "<leader>k", "15k", opts)
+
 -- Moving between splits
 k("n", "<C-h>", "<C-w>h", opts)
 k("n", "<C-j>", "<C-w>j", opts)
@@ -53,3 +58,14 @@ k("v", "y", "ygv", opts)
 k("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 k("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 k("v", "p", '"_dP', opts)
+
+-- INSERT
+k("i", "<A-h>", "<Left>", opts)
+k("i", "<A-j>", "<Down>", opts)
+k("i", "<A-k>", "<Up>", opts)
+k("i", "<A-l>", "<Right>", opts)
+
+k("i", "<A-e>", "<C-Right>", opts)
+k("i", "<A-b>", "<C-Left>", opts)
+
+k("i", "<A-L>", "<End>", opts)

@@ -10,6 +10,7 @@ require("thom.outline")
 require("thom.lualine")
 require("thom.venv-selector")
 require("thom.comments")
+require("thom.fold")
 
 require("thom.keymaps")
 
@@ -42,3 +43,4 @@ require("nvim-tree").setup({
 
 -- autoclose
 require("autoclose").setup()
+require("ufo").setup({ fold_virt_text_handler = require("thom.fold").handler })

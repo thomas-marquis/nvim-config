@@ -78,6 +78,7 @@ return require("packer").startup(function(use)
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
 	})
+	use({ "mg979/vim-visual-multi" })
 
 	-- UI
 	use({

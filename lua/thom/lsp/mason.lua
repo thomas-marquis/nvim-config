@@ -3,6 +3,8 @@ local servers = {
 	"gopls",
 	"lua_ls",
 	"pyright",
+	"yamlls",
+	"helm_ls",
 }
 
 local settings = {

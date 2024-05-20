@@ -1,11 +1,11 @@
 require("dashboard").setup({
-	theme = "hyper",
+	theme = "hyper", -- doom | hyper
 	config = {
 		week_header = {
 			enable = true,
 		},
 		shortcut = {
-			{ desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
+			{ desc = "󰊳 Packer Sync", group = "@property", action = "PackerSync", key = "u" },
 			{
 				icon = " ",
 				icon_hl = "@variable",
@@ -15,16 +15,10 @@ require("dashboard").setup({
 				key = "f",
 			},
 			{
-				desc = " Apps",
+				desc = " Tree",
 				group = "DiagnosticHint",
-				action = "Telescope app",
-				key = "a",
-			},
-			{
-				desc = " dotfiles",
-				group = "Number",
-				action = "Telescope dotfiles",
-				key = "d",
+				action = "NvimTreeToggle",
+				key = "t",
 			},
 		},
 	},

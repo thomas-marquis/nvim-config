@@ -20,6 +20,7 @@ return {
 		bash = { "beautysh" },
 		c = { "clang-format" },
 		cpp = { "clang-format" },
+		buf = { "buf" },
 	},
 	format_on_save = {
 		timeout_ms = 500,

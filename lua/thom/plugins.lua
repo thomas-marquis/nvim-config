@@ -164,6 +164,16 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- git
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+			require("thom.keymaps.git").setup_keymaps()
+		end,
+	})
+	use({ "tpope/vim-fugitive" })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

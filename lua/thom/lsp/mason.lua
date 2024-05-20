@@ -1,10 +1,11 @@
 local servers = {
-	-- "clangd",
+	"clangd",
 	"gopls",
 	"lua_ls",
 	"pyright",
 	"yamlls",
 	"helm_ls",
+	"bufls",
 }
 
 local settings = {

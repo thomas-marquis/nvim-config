@@ -113,6 +113,7 @@ return require("packer").startup(function(use)
 			require("barbecue").setup()
 		end,
 	})
+	use({ "xiyaowong/transparent.nvim" })
 
 	-- LSP
 	use("neovim/nvim-lspconfig")

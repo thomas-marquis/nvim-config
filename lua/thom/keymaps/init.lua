@@ -34,13 +34,25 @@ k("n", "<S-h>", "<cmd>bprevious<CR>", opts)
 k("n", "bd", "<cmd>bprevious<bar>:bdelete #<CR>", opts)
 
 -- Telescope
+k("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 k(
 	"n",
 	"<leader>tf",
 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
 	opts
 )
-k("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
+k(
+	"n",
+	"<leader>tb",
+	"<cmd>lua require'telescope.builtin'.git_branches(require('telescope.themes').get_ivy({ previewer = true}))<cr>",
+	opts
+)
+k(
+	"n",
+	"<leader>tc",
+	"<cmd>lua require'telescope.builtin'.git_commits(require('telescope.themes').get_ivy({ previewer = true}))<cr>",
+	opts
+)
 
 -- Outline
 k("n", "<leader>oo", "<cmd>Outline<CR>", opts)

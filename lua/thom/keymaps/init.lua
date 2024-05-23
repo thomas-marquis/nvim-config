@@ -41,18 +41,11 @@ k(
 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
 	opts
 )
-k(
-	"n",
-	"<leader>tb",
-	"<cmd>lua require'telescope.builtin'.git_branches(require('telescope.themes').get_ivy({ previewer = true}))<cr>",
-	opts
-)
-k(
-	"n",
-	"<leader>tc",
-	"<cmd>lua require'telescope.builtin'.git_commits(require('telescope.themes').get_ivy({ previewer = true}))<cr>",
-	opts
-)
+k("n", "<leader>tb", "<cmd>Telescope git_branches<cr>", opts)
+k("n", "<leader>tc", "<cmd>Telescope git_commits<cr>", opts)
+k("n", "<leader>ti", "<cmd>Telescope lsp_incoming_calls<cr>", opts)
+k("n", "<leader>td", "<cmd>Telescope diagnostics bufnr=0<cr>", opts)
+k("n", "<leader>tk", "<cmd>Telescope keymaps<cr>", opts)
 
 -- Outline
 k("n", "<leader>oo", "<cmd>Outline<CR>", opts)

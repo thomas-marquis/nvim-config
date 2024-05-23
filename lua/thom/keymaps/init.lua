@@ -34,7 +34,25 @@ k("n", "<S-h>", "<cmd>bprevious<CR>", opts)
 k("n", "bd", "<cmd>bprevious<bar>:bdelete #<CR>", opts)
 
 -- Telescope
+function vim.getVisualSelection()
+	vim.cmd('noau normal! "vy"')
+	local text = vim.fn.getreg("v")
+	vim.fn.setreg("v", {})
+
+	text = string.gsub(text, "\n", "")
+	if #text > 0 then
+		return text
+	else
+		return ""
+	end
+end
+
 k("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
+vim.keymap.set("v", "<leader>tg", function()
+	local tb = require("telescope.builtin")
+	local text = vim.getVisualSelection()
+	tb.live_grep({ default_text = text })
+end, opts)
 k(
 	"n",
 	"<leader>tf",
@@ -46,6 +64,9 @@ k("n", "<leader>tc", "<cmd>Telescope git_commits<cr>", opts)
 k("n", "<leader>ti", "<cmd>Telescope lsp_incoming_calls<cr>", opts)
 k("n", "<leader>td", "<cmd>Telescope diagnostics bufnr=0<cr>", opts)
 k("n", "<leader>tk", "<cmd>Telescope keymaps<cr>", opts)
+
+-- search
+k("n", "<A-n>", "<cmd>noh<cr>", opts)
 
 -- Outline
 k("n", "<leader>oo", "<cmd>Outline<CR>", opts)

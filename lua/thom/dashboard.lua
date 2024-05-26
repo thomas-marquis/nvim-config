@@ -7,7 +7,7 @@ require("dashboard").setup({
 		shortcut = {
 			{ desc = "󰊳 Packer Sync", group = "@property", action = "PackerSync", key = "u" },
 			{
-				icon = " ",
+				icon = "",
 				icon_hl = "@variable",
 				desc = "Files",
 				group = "Label",
@@ -15,25 +15,25 @@ require("dashboard").setup({
 				key = "f",
 			},
 			{
-				desc = " Tree",
+				desc = "+ Tree",
 				group = "DiagnosticHint",
 				action = "NvimTreeToggle",
 				key = "n",
 			},
 			{
-				desc = " Branches",
+				desc = "/ Branches",
 				group = "DiagnosticHint",
 				action = "Telescope git_branches",
 				key = "b",
 			},
 			{
-				desc = " Commits",
+				desc = "- Commits",
 				group = "DiagnosticHint",
 				action = "Telescope git_commits",
 				key = "c",
 			},
 			{
-				desc = " Terminal",
+				desc = "_ Terminal",
 				group = "DiagnosticHint",
 				action = "ToggleTerm",
 				key = "t",

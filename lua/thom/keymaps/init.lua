@@ -64,7 +64,6 @@ k("n", "<leader>tc", "<cmd>Telescope git_commits<cr>", opts)
 k("n", "<leader>ti", "<cmd>Telescope lsp_incoming_calls<cr>", opts)
 k("n", "<leader>td", "<cmd>Telescope diagnostics bufnr=0<cr>", opts)
 k("n", "<leader>tk", "<cmd>Telescope keymaps<cr>", opts)
--- k("n", "<leader>tm", "<cmd>Telescope man_pages<cr>", opts)
 k("n", "<leader>tm", "<cmd>lua require'telescope.builtin'.man_pages({sections = { 'ALL' }})<cr>", opts)
 
 -- search

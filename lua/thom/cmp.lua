@@ -4,39 +4,7 @@ if not cmp_status_ok then
 	return
 end
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-	vim.notify("An error occurred during luasnip plugin loading")
-	return
-end
-
--- Load snippets
-require("luasnip.loaders.from_vscode").lazy_load()
-
-local ls = luasnip
-local s = ls.snippet
-local t = ls.text_node
-local i = ls.insert_node
-local ls_extras = require("luasnip.extras")
-local r = ls_extras.rep
-local fmt = require("luasnip.extras.fmt").fmt
-
-ls.add_snippets("cpp", {
-	s(
-		"#guard_h",
-		fmt(
-			[[
-        #ifndef INCLUDE_{}_
-        #define INCLUDE_{}_
-
-        {}
-
-        #endif // INCLUDE_{}_
-        ]],
-			{ i(1), r(1), i(0), r(1) }
-		)
-	),
-})
+local luasnip = require("thom.snipets")
 
 local K = require("thom.keymaps.cmp")
 

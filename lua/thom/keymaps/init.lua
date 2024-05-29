@@ -7,9 +7,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local _ = require("thom.keymaps.nvim-tree")
-local _ = require("thom.keymaps.vim-test")
 local _ = require("thom.keymaps.venv-select")
 local _ = require("thom.keymaps.fold")
+local _ = require("thom.keymaps.tests")
 
 -- NORMAL
 -- Move

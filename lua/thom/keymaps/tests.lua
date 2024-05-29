@@ -1,0 +1,28 @@
+local function opts(desc)
+	return { desc = "neotest: " .. desc, noremap = true, silent = true }
+end
+
+local nt = require("neotest")
+
+vim.keymap.set("n", "<leader>uf", function()
+	nt.run.run(vim.fn.expand("%"))
+end, opts("Run the current file"))
+vim.keymap.set("n", "<leader>ut", function()
+	nt.run.run()
+end, opts("Run the nearest test"))
+vim.keymap.set("n", "<leader>ux", function()
+	nt.run.stop()
+end, opts("Stop the nearest test"))
+vim.keymap.set("n", "<leader>ug", function()
+	nt.run.attach()
+end, opts("Attach to the nearest test"))
+vim.keymap.set("n", "<leader>uo", function()
+	nt.output.open({ enter = true })
+end, opts("Open the output of a test result"))
+vim.keymap.set("n", "<leader>up", function()
+	nt.output_panel.toggle()
+end, opts("Toggle the output panel"))
+vim.keymap.set("n", "<leader>us", function()
+	nt.summary.toggle()
+end, opts("Toggle the summary window"))
+-- vim.keymap.set("n", "<leader>uf", , opts("Run the current file"))

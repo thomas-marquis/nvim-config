@@ -143,7 +143,17 @@ return require("packer").startup(function(use)
 	})
 
 	-- Tests
-	use("vim-test/vim-test")
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-neotest/neotest-go",
+			"nvim-neotest/neotest-python",
+		},
+	})
 
 	-- Comments
 	use({

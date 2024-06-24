@@ -3,6 +3,7 @@ local M = {}
 local base_opts = { noremap = true, silent = true }
 
 vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeFocus<CR>", base_opts)
+vim.api.nvim_set_keymap("n", "<leader>z", ":NvimTreeFindFile<CR>", base_opts)
 
 M.keymaps = function(bufnr)
 	local api = require("nvim-tree.api")

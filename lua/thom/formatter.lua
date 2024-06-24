@@ -30,5 +30,8 @@ return {
 		["clang-format"] = {
 			prepend_args = { "-style", "Microsoft" },
 		},
+		black = {
+			prepend_args = { "-l", "120" },
+		},
 	},
 }

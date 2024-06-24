@@ -9,7 +9,7 @@ vim.g.maplocalleader = " "
 local _ = require("thom.keymaps.nvim-tree")
 local _ = require("thom.keymaps.venv-select")
 local _ = require("thom.keymaps.fold")
-local _ = require("thom.keymaps.tests")
+local neotest_km = require("thom.keymaps.tests")
 
 -- NORMAL
 -- Move
@@ -75,6 +75,9 @@ k("n", "<leader>oo", "<cmd>Outline<CR>", opts)
 -- Move text up and down
 k("n", "<A-j>", "<cmd>m .+1<CR>==", opts)
 k("n", "<A-k>", "<cmd>m .-2<CR>==", opts)
+
+-- tests
+neotest_km.setup_keymaps()
 
 -- VISUAL
 k("v", "<", "<gv^", opts)

@@ -6,6 +6,7 @@ local servers = {
 	"yamlls",
 	"helm_ls",
 	"bufls",
+	"dockerls",
 }
 
 local settings = {

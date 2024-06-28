@@ -1,7 +1,13 @@
-local colorscheme = "monokai-pro-ristretto"
-
-local ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not ok then
-	vim.notify("Color scheme" .. colorscheme .. " not found! Maybe you have to install the plugin")
-	return
-end
+-- require("neosolarized").setup({
+-- 	comment_italics = true,
+-- 	background_set = false,
+-- })
+--
+-- -- local colorscheme = "monokai-pro-ristretto"
+-- local colorscheme = "neosolarized"
+--
+-- local ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+-- if not ok then
+-- 	vim.notify("Color scheme" .. colorscheme .. " not found! Maybe you have to install the plugin")
+-- 	return
+-- end

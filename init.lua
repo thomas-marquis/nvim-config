@@ -40,5 +40,4 @@ require("nvim-tree").setup({
 })
 
 -- autoclose
-require("autoclose").setup()
 require("ufo").setup({ fold_virt_text_handler = require("thom.fold").handler })

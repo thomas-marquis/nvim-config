@@ -82,6 +82,13 @@ return require("packer").startup(function(use)
 
 	-- UI
 	use({
+		"craftzdog/solarized-osaka.nvim",
+	})
+	-- use({
+	-- 	"svrana/neosolarized.nvim",
+	-- 	requires = { "tjdevries/colorbuddy.nvim" },
+	-- })
+	use({
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
 		config = function()
@@ -89,12 +96,12 @@ return require("packer").startup(function(use)
 		end,
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
-	use({
-		"loctvl842/monokai-pro.nvim",
-		config = function()
-			require("monokai-pro").setup()
-		end,
-	})
+	-- use({
+	-- 	"loctvl842/monokai-pro.nvim",
+	-- 	config = function()
+	-- 		require("monokai-pro").setup()
+	-- 	end,
+	-- })
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
@@ -164,7 +171,14 @@ return require("packer").startup(function(use)
 	})
 
 	-- Code formatting
-	use("m4xshen/autoclose.nvim")
+	-- use("m4xshen/autoclose.nvim")
+	use({
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-autopairs").setup(require("thom.autopairs"))
+		end,
+	})
 
 	-- Terminal
 	use({

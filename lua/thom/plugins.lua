@@ -84,6 +84,7 @@ return require("packer").startup(function(use)
 	use({
 		"craftzdog/solarized-osaka.nvim",
 	})
+	use({ "scottmckendry/cyberdream.nvim" })
 	-- use({
 	-- 	"svrana/neosolarized.nvim",
 	-- 	requires = { "tjdevries/colorbuddy.nvim" },

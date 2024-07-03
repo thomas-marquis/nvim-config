@@ -7,6 +7,8 @@ local servers = {
 	"helm_ls",
 	"bufls",
 	"dockerls",
+	"bashls",
+	"helm_ls",
 }
 
 local settings = {

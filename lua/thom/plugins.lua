@@ -172,7 +172,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- Code formatting
-	-- use("m4xshen/autoclose.nvim")
+	use("tpope/vim-surround")
 	use({
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",

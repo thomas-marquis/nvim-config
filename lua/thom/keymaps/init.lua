@@ -79,6 +79,9 @@ k("n", "<A-k>", "<cmd>m .-2<CR>==", opts)
 -- tests
 neotest_km.setup_keymaps()
 
+-- Markdown
+require("thom.keymaps.markdown")
+
 -- VISUAL
 k("v", "<", "<gv^", opts)
 k("v", ">", ">gv^", opts)

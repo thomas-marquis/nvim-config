@@ -60,6 +60,12 @@ return require("packer").startup(function(use)
 	})
 
 	use("github/copilot.vim")
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 
 	-- Navigation
 	use({

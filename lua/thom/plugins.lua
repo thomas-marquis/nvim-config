@@ -61,6 +61,13 @@ return require("packer").startup(function(use)
 
 	use("github/copilot.vim")
 	use({
+		"CopilotC-Nvim/CopilotChat.nvim",
+		branch = "canary",
+		requires = {
+			{ "nvim-lua/plenary.nvim", "zbirenbaum/copilot.lua" },
+		},
+	})
+	use({
 		"iamcco/markdown-preview.nvim",
 		run = function()
 			vim.fn["mkdp#util#install"]()

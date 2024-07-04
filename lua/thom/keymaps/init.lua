@@ -82,6 +82,9 @@ neotest_km.setup_keymaps()
 -- Markdown
 require("thom.keymaps.markdown")
 
+-- Copilot
+require("thom.keymaps.copilot")
+
 -- VISUAL
 k("v", "<", "<gv^", opts)
 k("v", ">", ">gv^", opts)

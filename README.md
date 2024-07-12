@@ -62,3 +62,67 @@ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_
 sudo dpkg -i ripgrep_13.0.0_amd64.deb
 ```
 
+Install helm:
+
+[Installation doc](https://helm.sh/docs/intro/install/)
+
+```bash
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+```
+
+Install golang:
+
+[Installation doc](https://golang.org/doc/install)
+
+Install pyenv:
+
+[Installation doc](https://github.com/pyenv/pyenv)
+
+```bash
+curl https://pyenv.run | bash
+
+sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev curl git \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+# Add to .bashrc
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Add to .profile
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# add to .bash_profile
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+```
+
+Install NerdFonts:
+
+[Download fonts](https://www.nerdfonts.com/)
+
+A placer dans le dossier `~/.local/share/fonts`
+
+```bash
+fc-cache -f -v
+```
+
+Install a clipboard manager:
+
+* comment vérifier si on est en X ou en wayland : [doc](https://itsfoss.com/check-wayland-or-xorg/)
+* quoi installer selon le cas : [What to install?](https://askubuntu.com/questions/1486871/how-can-i-copy-and-paste-outside-of-neovim)
+
+```bash
+# wayland or x11 ?
+echo $XDG_SESSION_TYPE
+
+# If x11
+sudo apt install xclip
+
+# If wayland
+sudo apt install wl-clipboard
+```

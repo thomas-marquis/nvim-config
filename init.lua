@@ -11,7 +11,6 @@ require("thom.lualine")
 require("thom.venv-selector")
 require("thom.comments")
 require("thom.fold")
-require("thom.tests")
 require("thom.copilot")
 
 require("thom.keymaps")

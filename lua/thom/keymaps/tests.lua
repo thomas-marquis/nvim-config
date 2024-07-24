@@ -10,7 +10,7 @@ return {
 		map("n", "<leader>uf", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', opts)
 
 		-- Exécuter le test sous le curseur
-		map("n", "<leader>un", '<cmd>lua require("neotest").run.run()<CR>', opts)
+		map("n", "<leader>ut", '<cmd>lua require("neotest").run.run()<CR>', opts)
 
 		-- Arrêter l'exécution des tests
 		map("n", "<leader>uq", '<cmd>lua require("neotest").run.stop()<CR>', opts)

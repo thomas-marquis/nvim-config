@@ -67,12 +67,18 @@ return require("packer").startup(function(use)
 			{ "nvim-lua/plenary.nvim", "zbirenbaum/copilot.lua" },
 		},
 	})
+
+	-- strange file formats
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function()
 			vim.fn["mkdp#util#install"]()
 		end,
 	})
+	use({
+		"3rd/image.nvim",
+	})
+	use({ "benlubas/molten-nvim" })
 
 	-- Navigation
 	use({
@@ -98,10 +104,6 @@ return require("packer").startup(function(use)
 		"craftzdog/solarized-osaka.nvim",
 	})
 	use({ "scottmckendry/cyberdream.nvim" })
-	-- use({
-	-- 	"svrana/neosolarized.nvim",
-	-- 	requires = { "tjdevries/colorbuddy.nvim" },
-	-- })
 	use({
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
@@ -110,12 +112,6 @@ return require("packer").startup(function(use)
 		end,
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
-	-- use({
-	-- 	"loctvl842/monokai-pro.nvim",
-	-- 	config = function()
-	-- 		require("monokai-pro").setup()
-	-- 	end,
-	-- })
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
@@ -174,6 +170,20 @@ return require("packer").startup(function(use)
 			"nvim-neotest/neotest-go",
 			"nvim-neotest/neotest-python",
 		},
+		config = function()
+			-- get neotest namespace (api call creates or returns namespace)
+			local neotest_ns = vim.api.nvim_create_namespace("neotest")
+			vim.diagnostic.config({
+				virtual_text = {
+					format = function(diagnostic)
+						local message =
+							diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+						return message
+					end,
+				},
+			}, neotest_ns)
+			require("thom.tests")
+		end,
 	})
 
 	-- Comments

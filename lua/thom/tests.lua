@@ -3,13 +3,11 @@ local keymaps = require("thom.keymaps.tests")
 require("neotest").setup({
 	adapters = {
 		require("neotest-go")({
-			go_test_args = {
-				"-v",
-				-- "-race",
-				-- "-count=1",
-				"-timeout=60s",
-				"./...",
+			experimental = {
+				test_table = true,
 			},
+			args = { "-count=1", "-timeout=60s" },
+			recursive_run = true,
 		}),
 		require("neotest-python")({
 			runner = "pytest",
@@ -43,7 +41,7 @@ require("neotest").setup({
 		expand_errors = true,
 		follow = true,
 		mappings = keymaps.summary_mapping,
-		open = "botright vsplit | vertical resize 50",
+		open = "botright vsplit | vertical resize 80",
 	},
 })
 

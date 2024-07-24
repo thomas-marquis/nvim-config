@@ -126,3 +126,11 @@ sudo apt install xclip
 # If wayland
 sudo apt install wl-clipboard
 ```
+
+Installing ImageMagick (for jupyter plugin):
+
+[doc](https://github.com/3rd/image.nvim#installing-imagemagick)
+
+```bash
+sudo apt install libmagickwand-dev
+```

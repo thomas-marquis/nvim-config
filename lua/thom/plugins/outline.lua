@@ -4,7 +4,7 @@ return {
         lazy = true,
         config = function()
             require("outline").setup()
-            vim.keymap.set("n", "<leader>oo", "<cmd>Outline<CR>", { desc = "Toggle outline" })
+            vim.api.nvim_buf_set_keymap("n", "<leader>oo", "<cmd>Outline<CR>", { desc = "Toggle outline" })
         end
     },
 }

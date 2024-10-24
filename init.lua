@@ -1,16 +1,12 @@
+require("thom.config.lazy")
+
 require("thom.options")
-require("thom.plugins")
 require("thom.colorscheme")
-require("thom.cmp")
-require("thom.lsp")
 require("thom.bufferline")
 require("thom.telescope")
 require("thom.treesitter")
-require("thom.outline")
 require("thom.lualine")
-require("thom.venv-selector")
 require("thom.comments")
-require("thom.fold")
 require("thom.copilot")
 
 require("thom.keymaps")
@@ -25,19 +21,16 @@ vim.opt.termguicolors = true
 
 -- OR setup with some options
 require("nvim-tree").setup({
-	sort = {
-		sorter = "case_sensitive",
-	},
-	view = {
-		width = 30,
-	},
-	renderer = {
-		group_empty = true,
-	},
-	filters = {
-		dotfiles = true,
-	},
+    sort = {
+        sorter = "case_sensitive",
+    },
+    view = {
+        width = 30,
+    },
+    renderer = {
+        group_empty = true,
+    },
+    filters = {
+        dotfiles = true,
+    },
 })
-
--- autoclose
-require("ufo").setup({ fold_virt_text_handler = require("thom.fold").handler })

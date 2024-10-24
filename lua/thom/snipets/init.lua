@@ -1,11 +1,11 @@
 local snip_status_ok, ls = pcall(require, "luasnip")
 if not snip_status_ok then
-	vim.notify("An error occurred during luasnip plugin loading")
-	return
+    vim.notify("An error occurred during luasnip plugin loading")
+    return
 end
 
 ls.config.setup({
-	updateevents = "TextChanged,TextChangedI",
+    updateevents = "TextChanged,TextChangedI",
 })
 
 -- Load snippets

@@ -7,8 +7,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local _ = require("thom.keymaps.nvim-tree")
-local _ = require("thom.keymaps.venv-select")
-local _ = require("thom.keymaps.fold")
 local neotest_km = require("thom.keymaps.tests")
 
 -- NORMAL
@@ -35,29 +33,29 @@ k("n", "bd", "<cmd>bprevious<bar>:bdelete #<CR>", opts)
 
 -- Telescope
 function vim.getVisualSelection()
-	vim.cmd('noau normal! "vy"')
-	local text = vim.fn.getreg("v")
-	vim.fn.setreg("v", {})
+    vim.cmd('noau normal! "vy"')
+    local text = vim.fn.getreg("v")
+    vim.fn.setreg("v", {})
 
-	text = string.gsub(text, "\n", "")
-	if #text > 0 then
-		return text
-	else
-		return ""
-	end
+    text = string.gsub(text, "\n", "")
+    if #text > 0 then
+        return text
+    else
+        return ""
+    end
 end
 
 k("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 vim.keymap.set("v", "<leader>tg", function()
-	local tb = require("telescope.builtin")
-	local text = vim.getVisualSelection()
-	tb.live_grep({ default_text = text })
+    local tb = require("telescope.builtin")
+    local text = vim.getVisualSelection()
+    tb.live_grep({ default_text = text })
 end, opts)
 k(
-	"n",
-	"<leader>tf",
-	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-	opts
+    "n",
+    "<leader>tf",
+    "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+    opts
 )
 k("n", "<leader>tb", "<cmd>Telescope git_branches<cr>", opts)
 k("n", "<leader>tc", "<cmd>Telescope git_commits<cr>", opts)
@@ -69,8 +67,6 @@ k("n", "<leader>tm", "<cmd>lua require'telescope.builtin'.man_pages({sections = 
 -- search
 k("n", "<A-n>", "<cmd>noh<cr>", opts)
 
--- Outline
-k("n", "<leader>oo", "<cmd>Outline<CR>", opts)
 
 -- Move text up and down
 k("n", "<A-j>", "<cmd>m .+1<CR>==", opts)
@@ -79,8 +75,6 @@ k("n", "<A-k>", "<cmd>m .-2<CR>==", opts)
 -- tests
 neotest_km.setup_keymaps()
 
--- Markdown
-require("thom.keymaps.markdown")
 
 -- Copilot
 require("thom.keymaps.copilot")

@@ -1,0 +1,68 @@
+local _ = require("outline")
+
+return {
+  {
+    "hedyhli/outline.nvim",
+    keys = { { "<leader>oo", "<cmd>Outline<cr>", desc = "Toggle Outline" } },
+    opts = {
+      symbols = {
+        ---@type outline.FilterConfig?
+        filter = {
+          "Class",
+          "Constructor",
+          "Enum",
+          "Field",
+          "Function",
+          "Interface",
+          "Method",
+          "Module",
+          "Namespace",
+          "Package",
+          "Property",
+          "Struct",
+          "Trait",
+          "Variable",
+        },
+      },
+      outline_window = {
+        position = "right",
+        split_command = nil,
+        width = 25,
+        relative_width = true,
+        wrap = false,
+        focus_on_open = true,
+        auto_close = false,
+        auto_jump = false,
+        show_numbers = false,
+        show_relative_numbers = false,
+        ---@type boolean|string?
+        show_cursorline = true,
+        hide_cursor = false,
+        winhl = "",
+        jump_highlight_duration = 400,
+        center_on_jump = true,
+      },
+      keymaps = {
+        show_help = "?",
+        close = { "<Esc>", "q" },
+        goto_location = "<Cr>",
+        peek_location = "o",
+        goto_and_close = "<S-Cr>",
+        restore_location = "<C-g>",
+        hover_symbol = "<C-space>",
+        toggle_preview = "K",
+        rename_symbol = "r",
+        code_actions = "a",
+        fold = "h",
+        fold_toggle = "<tab>",
+        fold_toggle_all = "<S-tab>",
+        unfold = "l",
+        fold_all = "W",
+        unfold_all = "E",
+        fold_reset = "R",
+        down_and_jump = "<C-j>",
+        up_and_jump = "<C-k>",
+      },
+    },
+  },
+}

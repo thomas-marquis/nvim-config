@@ -6,19 +6,6 @@ map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- TESTS
-map("n", "<leader>ua", '<cmd>lua require("neotest").run.run(vim.fn.getcwd())<CR>', { desc = "Run all tests" })
-map(
-  "n",
-  "<leader>uf",
-  '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>',
-  { desc = "Run tests in current file" }
-)
-map("n", "<leader>ut", '<cmd>lua require("neotest").run.run()<CR>', { desc = "Run test under cursor" })
-map("n", "<leader>uq", '<cmd>lua require("neotest").run.stop()<CR>', { desc = "Stop running tests" })
-map("n", "<leader>us", '<cmd>lua require("neotest").summary.toggle()<CR>', { desc = "Toggle test summary" })
-map("n", "<leader>uo", '<cmd>lua require("neotest").output.open({ enter = true })<CR>', { desc = "Open test output" })
-
 -- NORMAL
 -- Move
 map("n", "<leader>j", "15j", opts)
@@ -55,30 +42,8 @@ function vim.getVisualSelection()
   end
 end
 
-map("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
-vim.keymap.set("v", "<leader>tg", function()
-  local tb = require("telescope.builtin")
-  local text = vim.getVisualSelection()
-  tb.live_grep({ default_text = text })
-end, opts)
-map(
-  "n",
-  "<leader>tf",
-  "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-  opts
-)
-map("n", "<leader>tb", "<cmd>Telescope git_branches<cr>", opts)
-map("n", "<leader>tc", "<cmd>Telescope git_commits<cr>", opts)
-map("n", "<leader>ti", "<cmd>Telescope lsp_incoming_calls<cr>", opts)
-map("n", "<leader>td", "<cmd>Telescope diagnostics bufnr=0<cr>", opts)
-map("n", "<leader>tk", "<cmd>Telescope keymaps<cr>", opts)
-map("n", "<leader>tm", "<cmd>lua require'telescope.builtin'.man_pages({sections = { 'ALL' }})<cr>", opts)
-
 -- search
 map("n", "<A-n>", "<cmd>noh<cr>", opts)
-
--- Outline
-map("n", "<leader>oo", "<cmd>Outline<CR>", opts)
 
 -- Move text up and down
 map("n", "<A-j>", "<cmd>m .+1<CR>==", opts)

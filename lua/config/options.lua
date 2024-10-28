@@ -1,7 +1,9 @@
+-- LAZYVIM OPTIONS
 -- LSP Server to use for Python.
 -- Set to "basedpyright" to use basedpyright instead of pyright.
 vim.g.lazyvim_python_lsp = "pyright"
 
+-- BASE NEOVIM OPTIONS
 local options = {
   backup = false, -- creates a backup file
   clipboard = "unnamedplus", -- allows neovim to access the system clipboard
@@ -32,7 +34,6 @@ local options = {
   number = true, -- set numbered lines
   relativenumber = false, -- set relative numbered lines
   numberwidth = 4, -- set number column width to 2 {default 4}
-
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
   wrap = true, -- display lines as one long line
   linebreak = true, -- companion to wrap, don't split words
@@ -53,3 +54,8 @@ vim.opt.iskeyword:append("-") -- hyphenated words recognized by searches
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
 
+-- UFO
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true

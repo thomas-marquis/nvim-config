@@ -4,17 +4,16 @@ return {
     opts = {
       adapters = {
         ["neotest-golang"] = {
-          experimental = {
-            test_table = true,
-          },
-          args = { "-count=1", "-timeout=60s" },
-          recursive_run = true,
+          go_test_args = { "-count=1", "-timeout=30s" },
+          testify_enabled = true,
         },
         ["neotest-python"] = {
           runner = "pytest",
-          pytest_discover_instances = false,
+          pytest_discover_instances = true,
+          ---@return string?
           python = function()
-            local base_env_path = require("venv-selector").get_active_venv()
+            local venv_selector = require("venv-selector")
+            local base_env_path = venv_selector.venv()
             if base_env_path == nil then
               vim.notify("Please select a virtual environment first")
               return
@@ -22,17 +21,97 @@ return {
               return base_env_path .. "/bin/python"
             end
           end,
-          -- is_test_file = function(file_path)
-          --   return string.match(file_path)
-          -- end,
+          ---@param file_path string
+          ---@return boolean
+          is_test_file = function(file_path)
+            local filename = file_path:match("^.+/(.+)$")
+            if filename and filename:match("^test.*%.py$") then
+              return true
+            else
+              return false
+            end
+          end,
         },
+      },
+    },
+    dependencies = {
+      "linux-cultist/venv-selector.nvim",
+      "nvim-neotest/neotest-python",
+      "fredrikaverpil/neotest-golang",
+    },
+    keys = {
+      { "<leader>ts", false },
+      { "<leader>u", "", desc = "+test" },
+      {
+        "<leader>uf",
+        function()
+          require("neotest").run.run(vim.fn.expand("%"))
+        end,
+        desc = "Run File",
+      },
+      {
+        "<leader>ua",
+        function()
+          require("neotest").run.run(vim.uv.cwd())
+        end,
+        desc = "Run All Test Files",
+      },
+      {
+        "<leader>ut",
+        function()
+          require("neotest").run.run()
+        end,
+        desc = "Run Nearest",
+      },
+      {
+        "<leader>ul",
+        function()
+          require("neotest").run.run_last()
+        end,
+        desc = "Run Last",
+      },
+      {
+        "<leader>us",
+        function()
+          require("neotest").summary.toggle()
+        end,
+        desc = "Toggle Summary",
+      },
+      {
+        "<leader>uo",
+        function()
+          require("neotest").output.open({ enter = true, auto_close = true })
+        end,
+        desc = "Show Output",
+      },
+      {
+        "<leader>uO",
+        function()
+          require("neotest").output_panel.toggle()
+        end,
+        desc = "Toggle Output Panel",
+      },
+      {
+        "<leader>uq",
+        function()
+          require("neotest").run.stop()
+        end,
+        desc = "Stop",
+      },
+      {
+        "<leader>uw",
+        function()
+          require("neotest").watch.toggle(vim.fn.expand("%"))
+        end,
+        desc = "Toggle Watch",
       },
     },
   },
   {
     "nvim-neotest/neotest",
+    ---@param opts neotest.Config
     opts = function(_, opts)
-      opts.summary = vim.tbl_deep_extend("force", opts.summary, {
+      opts.summary = vim.tbl_deep_extend("force", opts.summary or {}, {
         animated = true,
         enabled = true,
         expand_errors = true,

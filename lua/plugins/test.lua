@@ -141,4 +141,16 @@ return {
       })
     end,
   },
+  {
+    "mfussenegger/nvim-dap",
+    keys = {
+      {
+        "<leader>uD",
+        function()
+          require("neotest").run.run({ strategy = "dap" })
+        end,
+        desc = "Debug Nearest test",
+      },
+    },
+  },
 }

@@ -119,4 +119,37 @@ return {
       },
     },
   },
+  {
+    "gbprod/yanky.nvim",
+    ---@param opts table
+    opts = function(_, opts)
+      local utils = require("yanky.utils")
+      local mapping = require("yanky.telescope.mapping")
+
+      opts.picker = vim.tbl_extend("force", opts.picker or {}, {
+        telescope = {
+          use_default_mappings = false,
+          mappings = {
+            default = mapping.put("p"),
+            i = {
+              ["<c-p>"] = mapping.put("p"),
+              ["<c-o>"] = mapping.put("]p"),
+              ["<c-x>"] = mapping.delete(),
+              ["<c-r>"] = mapping.set_register(utils.get_default_register()),
+            },
+            n = {
+              p = mapping.put("p"),
+              P = mapping.put("P"),
+              o = mapping.put("]p"),
+              d = mapping.delete(),
+              r = mapping.set_register(utils.get_default_register()),
+            },
+          },
+        },
+      })
+    end,
+    depends = {
+      { "nvim-telescope/telescope.nvim" },
+    },
+  },
 }

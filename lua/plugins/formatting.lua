@@ -42,7 +42,7 @@ return {
       formatters = {
         injected = { options = { ignore_errors = true } },
         ["clang-format"] = {
-          prepend_args = { "-style", "Microsoft" },
+          prepend_args = { "-style", "GNU" },
         },
         black = {
           prepend_args = { "-l", "120" },

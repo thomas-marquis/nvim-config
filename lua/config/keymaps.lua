@@ -4,7 +4,6 @@ local opts = { noremap = true, silent = true }
 --Remap space as leader key
 map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- NORMAL
 -- Move

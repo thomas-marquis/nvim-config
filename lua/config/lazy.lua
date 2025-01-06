@@ -38,7 +38,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.refactoring" },
     { import = "lazyvim.plugins.extras.editor.telescope" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
-    { import = "lazyvim.plugins.extras.coding.mvim-cmp" },
+    { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.util.rest" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
